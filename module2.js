@@ -97,12 +97,12 @@ biggestDigit(1984);
 
 
 function test(number, iter){
-    let temp = 1;
+    let temp1 = 1;
     for (let i = 0; i < iter; i++){
-        temp *= number;
+        temp1 *= number;
     }
 
-    console.log(temp);
+    console.log(temp1);
 }
 
 test(3,3);
@@ -112,15 +112,15 @@ test(3,3);
 //после этого найдите среднее значение из этих чисел.
 
 var arr = [];
-let temp = 11;
-let summ = 0;
+let temp2 = 11;
+let summa = 0;
 for (let i = 0 ; i < 6; i++){
-    arr[i] = temp;
-    temp += 5;
-    summ += arr[i];
+    arr[i] = temp2;
+    temp2 += 5;
+    summa += arr[i];
 }
 
-let average = summ / arr.length;
+let average = summa / arr.length;
 console.log(average);
 
 //Есть массив с неизвестным кол-вом элементов. Как вывести последний элемент?
@@ -195,3 +195,167 @@ function giveMeNumber(){
 }
 
 giveMeNumber();
+
+// Лизе нужно написать функцию sayHello(name), которая возвращает приветствие для пользователя. Тем не менее, она влюблена в пользователя с именем “Mark”, и хотела бы поприветствовать его немного иначе.
+
+function sayHello(name) {
+    if (name === 'Mark') {
+      console.log('Hi, ' + name);
+    } else {
+      console.log('Hello, ' + name);
+    }
+  }
+  
+  sayHello('Alex');
+  sayHello('Mark');
+  sayHello('Andry');
+  
+  
+  // Напишите функцию min(a,b), которая возвращает меньшее из чисел a,b.
+  function min(a,b) {
+    return a > b ? b : a;
+  }
+  
+  min(3, 5);
+  min(-6, -9);
+  min(10, 4);
+  
+  // Напишите функцию pow(x,n), которая возвращает x в степени n. Иначе говоря, умножает x на себя n раз и возвращает результат.
+  
+  function test(x, n) {
+    if (n <= 0) {
+      return 'Введите натуральные значения степени n, т.е. целые от 1 и выше';
+    }
+    let temp = 1;
+    for (let i = 0; i < n; i++){
+        temp *= x;
+    }
+  
+    return temp;
+  }
+  
+  test(3, 3);
+  test(3, 0);
+  
+  // Напишите функцию isEven(n), которая принимает один параметр, число, и возвращает, четное ли оно.
+  
+  function isEven(number) {
+    return number % 2 == 0 ? true : false;
+  }
+  
+  isEven(4);
+  isEven(1);
+  isEven(27);
+  
+  // Cоздать функцию deleteChars(str), которая удаляет первый и последний символы строки, которая передается в параметр, и возвращает новую строку без этих символов
+  
+  function deleteChars(lineBefore) {
+    let arr = lineBefore.split("");
+    arr.pop();
+    arr.shift();
+    let lineAfter = arr.join("");
+    return lineAfter;
+  }
+  
+  console.log(deleteChars('something'));
+  console.log(deleteChars('eva'));
+  console.log(deleteChars('a'));
+  
+  // Напишите функцию convertFloor(floor), которая получает американский этаж (передается как целое число), и возвращает реальный
+  
+  function convertFloor(floor){
+    switch(true){
+      case (floor >= 0 && floor <= 12):
+        console.log(floor + 1);   
+        break;
+      case floor == 13:
+        console.log('We have no 13`s floor, mate!');   
+      break;
+      default:
+        console.log(floor);
+    }
+  }
+  
+  convertFloor(-4);
+  convertFloor(0);
+  convertFloor(12);
+  convertFloor(13);
+  
+  //Перепишите функцию
+  //- заменив if else на конструкцию switch (convertType1)
+  //- через Function Expression (convertType2)
+  //- с помощью стрелочного синтаксиса (convertType3)
+  
+  function convertType1(value, toType){
+    switch (toType){
+      case 'boolean':
+        return Boolean(value);
+      case 'string':
+        return String(value);
+      case 'number':
+        return Number(value);
+    }
+  }
+  
+  let convertType2 = function(value, toType) {
+    if(toType === 'boolean'){
+      return Boolean(value);
+    }else if (toType === 'string') {
+      return String(value);
+    }else if (toType === 'number'){
+      return Number(value);
+    }
+  }
+  
+  let convertType3 = (value, toType) => {
+    if(toType === 'boolean'){
+      return Boolean(value);
+    }else if (toType === 'string') {
+      return String(value);
+    }else if (toType === 'number'){
+      return Number(value);
+    }
+  }
+  
+  console.log(convertType1('my string', 'boolean'));
+  console.log(convertType2('34', 'number'));
+  console.log(convertType3(false, 'string'));
+  
+  /** Написать функцию transformArray(arr, index1, index2, adding), принимающий в качестве аргументов:
+  1) arr - массив строк, например [“fngp”, ”kgei”, ”fpos”, ”clfw”]
+  2) index1 и index2 - числа - индексы в массиве (например 2, 3), элементы под которыми нужно поменять между собой местами (fpos и clfw нужно поменять местами)
+  3) adding - строка, которую необходимо дописать в конец к каждому элементу массива 
+  и возвращающую массив с учетом указанных трансформаций.
+  Например, transformArray([“fngp”, ”kgei”, ”fpos”, ”clfw”], 2, 3, “green”) должно вернуть [“fngpgreen”, ”kgeigreen”, ”clfwgreen”, ”fposgreen”]
+  */
+  
+  function transformArray(arr, index1, index2, adding) {
+    [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+  
+    arr = arr.map(function (item) {
+      return item + adding;
+    });
+    console.log(arr);
+  }
+  
+  let array = ['fngp1', 'kgei2', 'fpos3', 'clfw4'];
+  transformArray(array, 0, 3, 'adding');
+  
+  
+  // Написать функцию, в которую  мы передаем число, суммируем цифры данного числа до тех пор,  пока не останется одна цифра
+  
+  function lastNumber(number){
+    let numberArray = splitToArray(number);
+      number = numberArray.reduce((a, b) => a + b, 0);
+  
+    function splitToArray(number){
+      return Array.from(String(number), Number);
+    }
+  
+    return number > 9 ? lastNumber(number) : number;
+  }
+  
+  console.log(lastNumber(2));
+  console.log(lastNumber(17));
+  console.log(lastNumber(942));
+  console.log(lastNumber(132189));
