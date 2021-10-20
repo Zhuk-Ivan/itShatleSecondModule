@@ -539,13 +539,16 @@ let ulElement = document.createElement("ul");
 ulElement.className = "numbers";
 body.append(ulElement);
 let promptNumber = 0;
-let numbersSumm = 0;
 do {
     promptNumber = Number.parseInt(prompt('Введите число:', 0));
-    numbersSumm += promptNumber;
     let liElement = document.createElement("li");
-    liElement.innerText = numbersSumm;
+    liElement.className = "numbers-item";
+    let numbers = document.querySelectorAll(".numbers-item");
+    numbers.forEach(number => {
+      promptNumber += Number.parseInt(number.innerText);
+    });
 
+    liElement.innerText = promptNumber;
     if (!Number.isNaN(promptNumber)){
       ulElement.append(liElement);
     }
