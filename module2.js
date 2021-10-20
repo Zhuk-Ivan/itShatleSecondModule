@@ -427,7 +427,7 @@ console.log(a, b)
 //Глобально a все еще равна 5, b равна 10
 
 
-/*Создать элемент p с классом “text” и с текстом - “Это всего лишь текст”, после него вставьте div с классом “alert” и с текстом “А это сообщение об ошибке” с красным фоном, белым текстом и полями (padding) размером 20px*/
+// /*Создать элемент p с классом “text” и с текстом - “Это всего лишь текст”, после него вставьте div с классом “alert” и с текстом “А это сообщение об ошибке” с красным фоном, белым текстом и полями (padding) размером 20px*/
 
 let body = document.querySelector("body");
 
@@ -554,3 +554,151 @@ do {
     }
 
   } while (promptNumber);
+
+
+
+
+  window.addEventListener("load", function(event) {
+  console.log(event);
+});
+
+window.addEventListener('scroll', function(event) {
+  console.log('scrollEvent')
+});
+
+
+//При помощи обработчика событий скрывать выпадающее меню при наведении на любой из элементов навигации (пункты меню).
+
+let dropdownElemens = document.getElementsByClassName("listened-item");
+
+let closeDropdown = function() {
+  let menu = document.querySelector(".listened-menu");
+  let toggler = document.querySelector(".listened-toggle");
+
+  toggler.classList.remove('show');
+  toggler.setAttribute("aria-expanded","false");
+  menu.classList.remove('show');
+};
+
+for (let i = 0; i < dropdownElemens.length; i++) {
+    dropdownElemens[i].addEventListener('mouseover', closeDropdown, false);
+}
+
+// Создать 2 кнопки со значениями удалить и добавить. При нажатии кнопки добавить на страницу добавляется элемент с каким-либо текстом. Добавлять можно сколько угодно раз. При нажатии кнопки удалить - удаляется последний добавленный элемент.
+
+let toggle = document.querySelector('.dropdown-to-listen');
+let buttonCreate = document.createElement("button");
+buttonCreate.className = 'btn btn-primary';
+buttonCreate.innerText = 'Добавить';
+buttonCreate.style.marginLeft = '35px';
+
+let buttonDelete = document.createElement("button");
+buttonDelete.className = 'btn btn-danger';
+buttonDelete.innerText = 'Удалить';
+
+
+toggle.after(buttonCreate);
+toggle.after(buttonDelete);
+
+
+buttonCreate.onclick = function(event) {
+  let textToAppend = document.createElement("p");
+  textToAppend.className = 'created-by-click-element';
+  textToAppend.innerText = 'some text';
+
+  this.after(textToAppend);
+}
+
+buttonDelete.onclick = function(event) {
+  let elements = document.getElementsByClassName("created-by-click-element");
+  if (elements.length){
+    body.removeChild(elements[elements.length-1]);
+  }
+}
+
+
+/**
+Создание геометрических фигур
+Реализовать функцию drawFigure, которая принимает в качестве аргументов: название геометрической фигуры, цвет заливки, положение от верхнего края страницы (css свойство top)  и положение от левого края страницы (css свойство left), а также радиус, если это круг, сторону, если квадрат и ширину и высоту, если прямоугольник. Вызывать функцию при нажатии на соответствующие клавиши, например круг - Q, квадрат - W и тд
+ */
+
+window.addEventListener("keydown", function (event) {
+
+  let width =  document.getElementById('figure-width').value;
+  let height =  document.getElementById('figure-height').value;
+  let color =  document.getElementById('figure-color').value;
+  let top =  document.getElementById('figure-top').value;
+  let left =  document.getElementById('figure-left').value;
+  
+  switch (color){
+    case '1':
+      color = 'red';
+      break;
+    case '2':
+      color = 'blue';
+      break;
+    case '3':
+      color = 'green';
+      break;
+    case '4':
+      color = 'yellow';
+      break;
+    case '5':
+      color = 'pink';
+      break;
+    default:
+      color = 'black';          
+  }
+
+  if (top === ''){
+    top = 150;
+  }
+
+  if (left === ''){
+    left = 150;
+  }
+
+  if (event.key === 'q' || event.key === 'й') {
+    if (width === ''){
+      this.alert('Заполните первое поле');
+    }
+    drawFigure('circle', color, width, null,  top, left);
+  }else if(event.key === 'w' || event.key === 'ц'){
+    if (width === ''){
+      this.alert('Заполните первое поле');
+    }
+    drawFigure('square', color, width, null, top, left);
+  }else if(event.key === 'e' || event.key === 'у'){
+    if (width === '' || height === ''){
+      this.alert('Введите оба значения');
+    }
+    drawFigure('rectangle', color, width, height, top, left);
+  }
+});
+
+
+let drawFigure = function(figureType, color,  width, height, top, left) {
+    let previousFigure = document.querySelector('.figure');
+    if (previousFigure){
+      body.removeChild(previousFigure);
+    }
+    let figure = document.createElement('div');
+    figure.className = 'figure';
+    figure.style.position = 'fixed';
+    figure.style.backgroundColor = color;
+    figure.style.top = top + 'px';
+    figure.style.left = left + 'px';
+
+    if (figureType === 'circle'){
+      figure.style.height = (width * 2) + 'px';
+      figure.style.width = (width * 2) + 'px';
+      figure.style.borderRadius = "50%";
+    }else if (figureType === 'square'){
+      figure.style.height = width + 'px';
+      figure.style.width = width + 'px';
+    }else{
+      figure.style.height = height + 'px';
+      figure.style.width = width + 'px';
+    }
+    body.append(figure);
+  };
