@@ -429,7 +429,7 @@
 
 // // /*Создать элемент p с классом “text” и с текстом - “Это всего лишь текст”, после него вставьте div с классом “alert” и с текстом “А это сообщение об ошибке” с красным фоном, белым текстом и полями (padding) размером 20px*/
 
-let body = document.querySelector("body");
+// let body = document.querySelector("body");
 
 // let textElement = document.createElement("p");
 // textElement.className = "text";
@@ -703,341 +703,441 @@ let body = document.querySelector("body");
 //     body.append(figure);
 //   };
 
-//Создать форму в HTML с 2 полями ввода и кнопкой отправки. Получить эту форму на событие отправки этой формы (т е нажатие кнопки), сделать кнопку неактивной и очистить форму
-let form = document.getElementById('first-form');
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
-  let btn = form.elements['submit-btn'];
-  form.reset();
-  btn.disabled = true;
-});
+// //Создать форму в HTML с 2 полями ввода и кнопкой отправки. Получить эту форму на событие отправки этой формы (т е нажатие кнопки), сделать кнопку неактивной и очистить форму
+// let form = document.getElementById('first-form');
+// form.addEventListener('submit', function(event) {
+//   event.preventDefault();
+//   let btn = form.elements['submit-btn'];
+//   form.reset();
+//   btn.disabled = true;
+// });
 
-//Создать форму в HTML с 2 полями ввода и кнопкой отправки. Получить эту форму на событие отправки этой формы (т е нажатие кнопки), сделать кнопку неактивной и очистить форму
+// //Создать форму в HTML с 2 полями ввода и кнопкой отправки. Получить эту форму на событие отправки этой формы (т е нажатие кнопки), сделать кнопку неактивной и очистить форму
 
-let secondForm = document.getElementById('second-form');
-secondForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-  let btn = secondForm.elements['submit-btn'];
-  let input = secondForm.elements['second-form-input'];
-  input.value = Math.floor(Math.random() * 10000);;
-});
+// let secondForm = document.getElementById('second-form');
+// secondForm.addEventListener('submit', function(event) {
+//   event.preventDefault();
+//   let btn = secondForm.elements['submit-btn'];
+//   let input = secondForm.elements['second-form-input'];
+//   input.value = Math.floor(Math.random() * 10000);;
+// });
 
-// Создать форму в HTML с полем ввода, несколькими checkbox и кнопкой отправки. На submit формы вывести значения поля ввода и имена всех отмеченных полей checkbox.
+// // Создать форму в HTML с полем ввода, несколькими checkbox и кнопкой отправки. На submit формы вывести значения поля ввода и имена всех отмеченных полей checkbox.
 
-let thirdForm = document.getElementById('third-form');
-thirdForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-  let input = thirdForm.elements['third-form-input'];
-  var checkedValue = ''; 
-  var checkedCheckboxes = document.querySelectorAll('input[name=third-form-checkbox]');
-  for(var i=0; checkedCheckboxes[i]; ++i){
-      if(checkedCheckboxes[i].checked){
-           checkedValue += ' ' + checkedCheckboxes[i].value;
-      }
-}
-  document.getElementById('third-form-output').innerText = input.value + checkedValue;
-});
+// let thirdForm = document.getElementById('third-form');
+// thirdForm.addEventListener('submit', function(event) {
+//   event.preventDefault();
+//   let input = thirdForm.elements['third-form-input'];
+//   var checkedValue = ''; 
+//   var checkedCheckboxes = document.querySelectorAll('input[name=third-form-checkbox]');
+//   for(var i=0; checkedCheckboxes[i]; ++i){
+//       if(checkedCheckboxes[i].checked){
+//            checkedValue += ' ' + checkedCheckboxes[i].value;
+//       }
+// }
+//   document.getElementById('third-form-output').innerText = input.value + checkedValue;
+// });
 
-//Создать форму в HTML с полем ввода и кнопкой отправки. На submit формы, если поля ввода пустое, делать фокус на поле ввода.
+// //Создать форму в HTML с полем ввода и кнопкой отправки. На submit формы, если поля ввода пустое, делать фокус на поле ввода.
 
-let fourthForm = document.getElementById('fourth-form');
-fourthForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-  let input = fourthForm.elements['fourth-form-input'];
-  if (input.value === ''){
-    input.focus();
-  }
-});
+// let fourthForm = document.getElementById('fourth-form');
+// fourthForm.addEventListener('submit', function(event) {
+//   event.preventDefault();
+//   let input = fourthForm.elements['fourth-form-input'];
+//   if (input.value === ''){
+//     input.focus();
+//   }
+// });
 
-//Создать форму в HTML с полями для ввода имени, фамилии, телефона и сообщения. Для поля телефона задать максимальное количество символов 13, сообщение может быть большим. При submit формы создавать объект со всеми значениями формы и выводить его.
+// //Создать форму в HTML с полями для ввода имени, фамилии, телефона и сообщения. Для поля телефона задать максимальное количество символов 13, сообщение может быть большим. При submit формы создавать объект со всеми значениями формы и выводить его.
 
-let fifthForm = document.getElementById('fifth-form');
-fifthForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-  let formElements =  fifthForm.elements;
-  let user = {
-    firstName: formElements['firstName'].value,
-    lastName: formElements['lastName'].value,
-    phone: formElements['phone'].value,
-    userText: formElements['phone'].value
-  } 
-  console.log(user);
-});
+// let fifthForm = document.getElementById('fifth-form');
+// fifthForm.addEventListener('submit', function(event) {
+//   event.preventDefault();
+//   let formElements =  fifthForm.elements;
+//   let user = {
+//     firstName: formElements['firstName'].value,
+//     lastName: formElements['lastName'].value,
+//     phone: formElements['phone'].value,
+//     userText: formElements['phone'].value
+//   } 
+//   console.log(user);
+// });
 
-//Создать калькулятор расхода и дохода. Пользователь вводит число в поле ввода и выбирает с помощью radio кнопки доход это или расход. На нажатие кнопки нужно рассчитать текущее значение счета, а также отрисовать столбики диаграммы дохода и расхода разными цветами. При нажатии кнопки поля ввода очищаются
+// //Создать калькулятор расхода и дохода. Пользователь вводит число в поле ввода и выбирает с помощью radio кнопки доход это или расход. На нажатие кнопки нужно рассчитать текущее значение счета, а также отрисовать столбики диаграммы дохода и расхода разными цветами. При нажатии кнопки поля ввода очищаются
 
-let sixthForm = document.getElementById('sixth-form');
-let inputValue = sixthForm.elements['income-expenses'];
-let radioIncome = document.getElementById('income');
-let radioExpenses = document.getElementById('expenses');
-let incomeColumn =  document.getElementById('incomeColumn');
-let expensesColumn = document.getElementById('expensesColumn');
-let difference = document.getElementById('difference');
-let incomeSumm = 0;
-let expensesSumm = 0;
-sixthForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-  if (inputValue.value === ''){
-    incomeColumn.style.paddingTop = 0 + 'px';
-    expensesColumn.style.paddingTop = 0 + 'px';
-    incomeColumn.innerText = '';
-    expensesColumn.innerText = '';
-  }
+// let sixthForm = document.getElementById('sixth-form');
+// let inputValue = sixthForm.elements['income-expenses'];
+// let radioIncome = document.getElementById('income');
+// let radioExpenses = document.getElementById('expenses');
+// let incomeColumn =  document.getElementById('incomeColumn');
+// let expensesColumn = document.getElementById('expensesColumn');
+// let difference = document.getElementById('difference');
+// let incomeSumm = 0;
+// let expensesSumm = 0;
+// sixthForm.addEventListener('submit', function(event) {
+//   event.preventDefault();
+//   if (inputValue.value === ''){
+//     incomeColumn.style.paddingTop = 0 + 'px';
+//     expensesColumn.style.paddingTop = 0 + 'px';
+//     incomeColumn.innerText = '';
+//     expensesColumn.innerText = '';
+//   }
 
-  if (radioIncome.checked && inputValue.value !== ''){
-    incomeSumm += Number.parseInt(inputValue.value);
-    incomeColumn.style.paddingTop = incomeSumm + 'px';
-    incomeColumn.innerText = incomeSumm;
-  }else if (radioExpenses.checked && inputValue.value !== ''){
-    expensesSumm += Number.parseInt(inputValue.value);
-    expensesColumn.style.paddingTop = expensesSumm + 'px';
-    expensesColumn.innerText = expensesSumm;
-  }
-  difference.innerText = 'Текущее значение счета: ' + (incomeSumm - expensesSumm);
-});
+//   if (radioIncome.checked && inputValue.value !== ''){
+//     incomeSumm += Number.parseInt(inputValue.value);
+//     incomeColumn.style.paddingTop = incomeSumm + 'px';
+//     incomeColumn.innerText = incomeSumm;
+//   }else if (radioExpenses.checked && inputValue.value !== ''){
+//     expensesSumm += Number.parseInt(inputValue.value);
+//     expensesColumn.style.paddingTop = expensesSumm + 'px';
+//     expensesColumn.innerText = expensesSumm;
+//   }
+//   difference.innerText = 'Текущее значение счета: ' + (incomeSumm - expensesSumm);
+// });
 
-/**
- Создать функцию, которая создает модальное окно с вопросом о имени и возрасте пользователя. Поля обязательные для заполнения. В окне 2 кнопки - отмена и добавить. При нажатии отмены, окно закрывается, при нажатии на добавить, проверяется, если возраст больше 18, то на странице появляется новый элемент списка с именем и возрастом пользователя, если нет выводится красное текстовое сообщение. 
-Функция вызывается на нажатие кнопки - Добавить пользователя
- */
+// /**
+//  Создать функцию, которая создает модальное окно с вопросом о имени и возрасте пользователя. Поля обязательные для заполнения. В окне 2 кнопки - отмена и добавить. При нажатии отмены, окно закрывается, при нажатии на добавить, проверяется, если возраст больше 18, то на странице появляется новый элемент списка с именем и возрастом пользователя, если нет выводится красное текстовое сообщение. 
+// Функция вызывается на нажатие кнопки - Добавить пользователя
+//  */
 
-let modalButton = document.getElementById('modalButton');
-let submitButton = document.getElementById('submitModal');
-let cancelButton = document.getElementById('cancelModal');
-let modal = document.getElementById('modal');
-let wrapper = document.getElementById('wrapper');
-let eightForm = document.getElementById('eight-form');
-let values = eightForm.elements['eight-form-input'];
-let ulOfAdults = document.getElementById("adults");
-let error = document.getElementById('modal-error');
-modalButton.onclick = function () {
-  error.style.display = 'none';
-	modal.style.display = 'block';
-  wrapper.style.display = 'block';
-}
-document.onkeydown = function(e) {
-  if (e.key == 'Escape') {
-    values[0].value = '';
-    values[1].value = '';
-    modal.style.display = 'none';
-    wrapper.style.display = 'none';
-  }
-};
-wrapper.onclick = function () {
-  values[0].value = '';
-  values[1].value = '';
-	modal.style.display = 'none';
-  wrapper.style.display = 'none';
-}
+// let modalButton = document.getElementById('modalButton');
+// let submitButton = document.getElementById('submitModal');
+// let cancelButton = document.getElementById('cancelModal');
+// let modal = document.getElementById('modal');
+// let wrapper = document.getElementById('wrapper');
+// let eightForm = document.getElementById('eight-form');
+// let values = eightForm.elements['eight-form-input'];
+// let ulOfAdults = document.getElementById("adults");
+// let error = document.getElementById('modal-error');
+// modalButton.onclick = function () {
+//   error.style.display = 'none';
+// 	modal.style.display = 'block';
+//   wrapper.style.display = 'block';
+// }
+// document.onkeydown = function(e) {
+//   if (e.key == 'Escape') {
+//     values[0].value = '';
+//     values[1].value = '';
+//     modal.style.display = 'none';
+//     wrapper.style.display = 'none';
+//   }
+// };
+// wrapper.onclick = function () {
+//   values[0].value = '';
+//   values[1].value = '';
+// 	modal.style.display = 'none';
+//   wrapper.style.display = 'none';
+// }
 
-cancelButton.onclick =  function () {
-  values[0].value = '';
-  values[1].value = '';
-	modal.style.display = 'none';
-  wrapper.style.display = 'none';
-}
+// cancelButton.onclick =  function () {
+//   values[0].value = '';
+//   values[1].value = '';
+// 	modal.style.display = 'none';
+//   wrapper.style.display = 'none';
+// }
 
-eightForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-  let name = values[0].value;
-  if (name === ''){
-    name = 'Unnamed, but adult'
-  }
-  let age = values[1].value;
-  if (age !== '' && Number.parseInt(age) > 18) {
-    let adultLi = document.createElement("li");
-    adultLi.className = 'adults-list-item';
-    adultLi.innerText = `${name} , with age ${age}`;
-    ulOfAdults.append(adultLi);
-  }else{
-    error.style.display = 'inline-block';
-    error.style.color = 'red';
-    error.innerText = 'nope, too young for hard ride!'
-  }
-  cancelButton.click();
-});
+// eightForm.addEventListener('submit', function(event) {
+//   event.preventDefault();
+//   let name = values[0].value;
+//   if (name === ''){
+//     name = 'Unnamed, but adult'
+//   }
+//   let age = values[1].value;
+//   if (age !== '' && Number.parseInt(age) > 18) {
+//     let adultLi = document.createElement("li");
+//     adultLi.className = 'adults-list-item';
+//     adultLi.innerText = `${name} , with age ${age}`;
+//     ulOfAdults.append(adultLi);
+//   }else{
+//     error.style.display = 'inline-block';
+//     error.style.color = 'red';
+//     error.innerText = 'nope, too young for hard ride!'
+//   }
+//   cancelButton.click();
+// });
 
-/**Создать собственную валидацию поля емейл:
-При потере фокуса или отправке формы, проверять с помощью регулярного выражения значение поля email и показывать ошибку, если оно не соответствует */
-
-
-let seventhForm = document.getElementById('seventh-form');
-let emailInput = seventhForm.elements['seventh-form-email'];
-
-sixthForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-  if (!validateEmail(emailInput.value))
-    console.log(emailInput.style)
-});
-emailInput.addEventListener('focus', function(event) {
-  emailInput.style.backgroundColor = '';
-});
-
-emailInput.addEventListener('blur', function(event) {
-  if (!validateEmail(emailInput.value))
-    emailInput.style.backgroundColor = 'red';
-});
-
-function validateEmail(email) {
-  var regEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return regEx.test(email);
-}
+// /**Создать собственную валидацию поля емейл:
+// При потере фокуса или отправке формы, проверять с помощью регулярного выражения значение поля email и показывать ошибку, если оно не соответствует */
 
 
-/**
- Создать функцию, которая создает геометрическую фигуру, данные о фигуре из формы - можно выбрать форму фигуры, ввести цвет, размеры, положение на странице. Если выбран круг, то появляется поле ввода радиуса, если квадрат, то сторона, если прямоугольник, то 2 поля размера.
- */
+// let seventhForm = document.getElementById('seventh-form');
+// let emailInput = seventhForm.elements['seventh-form-email'];
 
-let ninthForm = document.getElementById('ninght-form');
-let radios = ninthForm.elements["figure-radio-button"];
- for(let i = 0; i < radios.length; i++) {
-     radios[i].onclick = function() {
+// sixthForm.addEventListener('submit', function(event) {
+//   event.preventDefault();
+//   if (!validateEmail(emailInput.value))
+//     console.log(emailInput.style)
+// });
+// emailInput.addEventListener('focus', function(event) {
+//   emailInput.style.backgroundColor = '';
+// });
 
-      let parameters = document.getElementsByClassName('figure-parameter');
-      if (parameters.length > 0){
-        Array.from(parameters).forEach((param) => {
-          ninthForm.removeChild(param);
-        });
-      }
+// emailInput.addEventListener('blur', function(event) {
+//   if (!validateEmail(emailInput.value))
+//     emailInput.style.backgroundColor = 'red';
+// });
 
-      if (this.value === 'circle'){
-          let radiusInput = document.createElement('input');
-          radiusInput.type = 'number';
-          radiusInput.name = 'radius';
-          radiusInput.placeholder = 'Радиус';
-          radiusInput.className = 'figure-parameter';
-          radiusInput.id = 'radius';
-          ninthForm.append(radiusInput);
-          addСhoices();
-      }else if (this.value === 'square'){
-          let squareInput = document.createElement('input');
-          squareInput.type = 'number';
-          squareInput.name = 'side';
-          squareInput.placeholder = 'Сторона';
-          squareInput.className = 'figure-parameter';
-          squareInput.id = 'squareSide';
-          ninthForm.append(squareInput);
-          addСhoices();
-      }else{
-        let widthInput = document.createElement('input');
-        let heightInput = document.createElement('input');
-        widthInput.type = 'number';
-        widthInput.name = 'width';
-        widthInput.placeholder = 'Ширина';
-        widthInput.className = 'figure-parameter';
-        widthInput.id = 'reactangleWidth';
-        heightInput.type = 'number';
-        heightInput.name = 'height';
-        heightInput.placeholder = 'Высота';
-        heightInput.className = 'figure-parameter';
-        heightInput.id = 'reactangleHeight';
-        ninthForm.append(widthInput);
-        ninthForm.append(heightInput);
-        addСhoices();
-      }
+// function validateEmail(email) {
+//   var regEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//   return regEx.test(email);
+// }
+
+
+// /**
+//  Создать функцию, которая создает геометрическую фигуру, данные о фигуре из формы - можно выбрать форму фигуры, ввести цвет, размеры, положение на странице. Если выбран круг, то появляется поле ввода радиуса, если квадрат, то сторона, если прямоугольник, то 2 поля размера.
+//  */
+
+// let ninthForm = document.getElementById('ninght-form');
+// let radios = ninthForm.elements["figure-radio-button"];
+//  for(let i = 0; i < radios.length; i++) {
+//      radios[i].onclick = function() {
+
+//       let parameters = document.getElementsByClassName('figure-parameter');
+//       if (parameters.length > 0){
+//         Array.from(parameters).forEach((param) => {
+//           ninthForm.removeChild(param);
+//         });
+//       }
+
+//       if (this.value === 'circle'){
+//           let radiusInput = document.createElement('input');
+//           radiusInput.type = 'number';
+//           radiusInput.name = 'radius';
+//           radiusInput.placeholder = 'Радиус';
+//           radiusInput.className = 'figure-parameter';
+//           radiusInput.id = 'radius';
+//           ninthForm.append(radiusInput);
+//           addСhoices();
+//       }else if (this.value === 'square'){
+//           let squareInput = document.createElement('input');
+//           squareInput.type = 'number';
+//           squareInput.name = 'side';
+//           squareInput.placeholder = 'Сторона';
+//           squareInput.className = 'figure-parameter';
+//           squareInput.id = 'squareSide';
+//           ninthForm.append(squareInput);
+//           addСhoices();
+//       }else{
+//         let widthInput = document.createElement('input');
+//         let heightInput = document.createElement('input');
+//         widthInput.type = 'number';
+//         widthInput.name = 'width';
+//         widthInput.placeholder = 'Ширина';
+//         widthInput.className = 'figure-parameter';
+//         widthInput.id = 'reactangleWidth';
+//         heightInput.type = 'number';
+//         heightInput.name = 'height';
+//         heightInput.placeholder = 'Высота';
+//         heightInput.className = 'figure-parameter';
+//         heightInput.id = 'reactangleHeight';
+//         ninthForm.append(widthInput);
+//         ninthForm.append(heightInput);
+//         addСhoices();
+//       }
          
-     }
- }
+//      }
+//  }
 
- function addСhoices(){
-  let topOffset = document.createElement('input');
-  let leftOffset = document.createElement('input');
-  let colorSelect = document.createElement('select');
-  let submitButton = document.createElement('button');
-  topOffset.type = 'number';
-  topOffset.id = 'top-offset';
-  topOffset.placeholder = 'Отступ сверху';
-  topOffset.className = 'figure-parameter';
-  leftOffset.type = 'number';
-  leftOffset.id = 'left-offset';
-  leftOffset.placeholder = 'Отступ слева';
-  leftOffset.className = 'figure-parameter';
+//  function addСhoices(){
+//   let topOffset = document.createElement('input');
+//   let leftOffset = document.createElement('input');
+//   let colorSelect = document.createElement('select');
+//   let submitButton = document.createElement('button');
+//   topOffset.type = 'number';
+//   topOffset.id = 'top-offset';
+//   topOffset.placeholder = 'Отступ сверху';
+//   topOffset.className = 'figure-parameter';
+//   leftOffset.type = 'number';
+//   leftOffset.id = 'left-offset';
+//   leftOffset.placeholder = 'Отступ слева';
+//   leftOffset.className = 'figure-parameter';
 
-  var colorArray = ["red","blue","green","yellow", "pink", "black"];
-  colorSelect.className="figure-parameter";
-  colorSelect.id = 'form-figure-color';
-  for (var i = 0; i < colorArray.length; i++) {
-    var option = document.createElement("option");
-    option.value = colorArray[i];
-    option.text = colorArray[i];
-    colorSelect.appendChild(option);
-  }
+//   var colorArray = ["red","blue","green","yellow", "pink", "black"];
+//   colorSelect.className="figure-parameter";
+//   colorSelect.id = 'form-figure-color';
+//   for (var i = 0; i < colorArray.length; i++) {
+//     var option = document.createElement("option");
+//     option.value = colorArray[i];
+//     option.text = colorArray[i];
+//     colorSelect.appendChild(option);
+//   }
 
-  submitButton.type = 'submit';
-  submitButton.name = 'submit-btn';
-  submitButton.className = 'figure-parameter';
-  submitButton.innerText = 'Нарисовать фигуру';
+//   submitButton.type = 'submit';
+//   submitButton.name = 'submit-btn';
+//   submitButton.className = 'figure-parameter';
+//   submitButton.innerText = 'Нарисовать фигуру';
 
-  ninthForm.append(topOffset);
-  ninthForm.append(leftOffset);
-  ninthForm.append(colorSelect);
-  ninthForm.append(submitButton);
- }
+//   ninthForm.append(topOffset);
+//   ninthForm.append(leftOffset);
+//   ninthForm.append(colorSelect);
+//   ninthForm.append(submitButton);
+//  }
 
 
- ninthForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-  let figureType = document.querySelector('input[name=figure-radio-button]:checked').value;
-  let topOffset = document.getElementById('top-offset').value;
-  let leftOffset = document.getElementById('left-offset').value;
-  let color = document.getElementById('form-figure-color').value;
+//  ninthForm.addEventListener('submit', function(event) {
+//   event.preventDefault();
+//   let figureType = document.querySelector('input[name=figure-radio-button]:checked').value;
+//   let topOffset = document.getElementById('top-offset').value;
+//   let leftOffset = document.getElementById('left-offset').value;
+//   let color = document.getElementById('form-figure-color').value;
   
-  if (topOffset === ''){
-    topOffset = 400;
-  }
+//   if (topOffset === ''){
+//     topOffset = 400;
+//   }
 
-  if (leftOffset === ''){
-    leftOffset = 400;
-  }
+//   if (leftOffset === ''){
+//     leftOffset = 400;
+//   }
 
-  if (figureType === 'circle'){
-    let circleRadius = document.getElementById('radius').value;
-    if (circleRadius === ''){
-      this.alert('Заполните поле "радиус"');
-    }
-    drawFigureFromForm(figureType, color, circleRadius, null,  topOffset, leftOffset);
-  }else if(figureType === 'square'){
-    let squareSide = document.getElementById('squareSide').value;
-    console.log(topOffset, leftOffset, squareSide, figureType, color);
-    if (squareSide === ''){
-      this.alert('Заполните поле "сторона"');
-    }
-    drawFigureFromForm(figureType, color, squareSide, null, topOffset, leftOffset);
-  }else if(figureType === 'rectangle'){
-    let rectangleWidth = document.getElementById('reactangleWidth').value;
-    let rectangleHeight = document.getElementById('reactangleHeight').value;
-    if (rectangleWidth === '' || rectangleHeight === ''){
-      this.alert('Введите оба значения');
-    }
-    drawFigureFromForm(figureType, color, rectangleWidth, rectangleHeight, topOffset, leftOffset);
+//   if (figureType === 'circle'){
+//     let circleRadius = document.getElementById('radius').value;
+//     if (circleRadius === ''){
+//       this.alert('Заполните поле "радиус"');
+//     }
+//     drawFigureFromForm(figureType, color, circleRadius, null,  topOffset, leftOffset);
+//   }else if(figureType === 'square'){
+//     let squareSide = document.getElementById('squareSide').value;
+//     console.log(topOffset, leftOffset, squareSide, figureType, color);
+//     if (squareSide === ''){
+//       this.alert('Заполните поле "сторона"');
+//     }
+//     drawFigureFromForm(figureType, color, squareSide, null, topOffset, leftOffset);
+//   }else if(figureType === 'rectangle'){
+//     let rectangleWidth = document.getElementById('reactangleWidth').value;
+//     let rectangleHeight = document.getElementById('reactangleHeight').value;
+//     if (rectangleWidth === '' || rectangleHeight === ''){
+//       this.alert('Введите оба значения');
+//     }
+//     drawFigureFromForm(figureType, color, rectangleWidth, rectangleHeight, topOffset, leftOffset);
+//   }
+// });
+
+
+
+
+// let drawFigureFromForm = function(figureType, color,  width, height, top, left) {
+//     let previousFigure = document.querySelector('.figure');
+//     if (previousFigure){
+//       body.removeChild(previousFigure);
+//     }
+//     let figure = document.createElement('div');
+//     figure.className = 'figure';
+//     figure.style.position = 'fixed';
+//     figure.style.backgroundColor = color;
+//     figure.style.top = top + 'px';
+//     figure.style.left = left + 'px';
+
+//     if (figureType === 'circle'){
+//       figure.style.height = (width * 2) + 'px';
+//       figure.style.width = (width * 2) + 'px';
+//       figure.style.borderRadius = "50%";
+//     }else if (figureType === 'square'){
+//       figure.style.height = width + 'px';
+//       figure.style.width = width + 'px';
+//     }else{
+//       figure.style.height = height + 'px';
+//       figure.style.width = width + 'px';
+//     }
+//     body.append(figure);
+//   };
+
+
+//При скроле, в момент активного 2-го экрана покажите фиксированную кнопку внизу страницы, которая до этого будет являться скрытой.
+let backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', function () {
+  if (window.scrollY - window.screen.height > 0){
+    backToTop.style.display = 'block';
   }
 });
 
+backToTop.addEventListener('click', function () {
+  window.scrollTo(0,0);
+})
 
+//Реализовать TABS-блок.
+//При клике по по вкладке, должен показываться соответствующий текст
 
+function openTab(event, tabName) {
+  let tabcontent = document.getElementsByClassName("tabcontent");
+  for (let i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
 
-let drawFigureFromForm = function(figureType, color,  width, height, top, left) {
-    let previousFigure = document.querySelector('.figure');
-    if (previousFigure){
-      body.removeChild(previousFigure);
+  let tablinks = document.getElementsByClassName("tablinks");
+  for (let i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  document.getElementById(tabName).style.display = "block";
+  event.currentTarget.className += " active";
+}
+
+//Реализовать подчёркивание пункта меню, соответствующего текущему экрану.
+//Например, если мы находимся на разделе “контакты”, вкладка конакты в фиксированном меню должна быть активной и т.д.
+
+let sections = document.querySelectorAll("section");
+let navLi = document.querySelectorAll("nav .container ul li");
+window.onscroll = () => {
+  let current = "";
+
+  sections.forEach((section) => {
+    let sectionTop = section.offsetTop;
+    if (scrollY >= sectionTop - 60) {
+      current = section.getAttribute("id"); 
     }
-    let figure = document.createElement('div');
-    figure.className = 'figure';
-    figure.style.position = 'fixed';
-    figure.style.backgroundColor = color;
-    figure.style.top = top + 'px';
-    figure.style.left = left + 'px';
+  });
 
-    if (figureType === 'circle'){
-      figure.style.height = (width * 2) + 'px';
-      figure.style.width = (width * 2) + 'px';
-      figure.style.borderRadius = "50%";
-    }else if (figureType === 'square'){
-      figure.style.height = width + 'px';
-      figure.style.width = width + 'px';
-    }else{
-      figure.style.height = height + 'px';
-      figure.style.width = width + 'px';
+  navLi.forEach((li) => {
+    li.classList.remove("active");
+    if (li.classList.contains(current)) {
+      li.classList.add("active");
     }
-    body.append(figure);
-  };
+  });
+};
+
+//Создать объект car с набором свойств по желанию. Вывести в цикле все ключи и значения объекта.
+
+let car = {
+  name: 'Porsche',
+  model: '911',
+  coachbuilder: 'coupe',
+  age: 2021,
+  configuration: '4 × 2'
+}
+
+for (const [key, value] of Object.entries(car)) {
+  console.log(`${key}: ${value}`);
+}
+// or
+for (let key in car) {
+  console.log(`${key}: ${car[key]}`);
+}
+
+
+//Создать объект user с свойствами name, email, phone, id. Скопировать этот объект со всеми свойствами в новую переменную newUser.
+
+let user = {
+  id: 1,
+  name: 'Alex',
+  emai: 'Alex.novarov@gmail.com',
+  phone: '+375296449785'
+}
+
+let newUser = user;
+
+console.log(newUser);
+
+/**Создать объект circle со свойствами: radius, color. 
+Также создать в объекте метод calculateCircumference(), при вызове которого, в консоль выводится длина окружности (2 * число пи * радиус).
+ */
+
+let circle = {
+  radius: 10,
+  colr: 'blue',
+  calculateCircumference(){
+    console.log(2 * Math.PI * this.radius);
+  }
+}
+
+circle.calculateCircumference();
