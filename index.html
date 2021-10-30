@@ -7,7 +7,8 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</head>
+    <link href="style.css" rel="stylesheet">
+  </head>
 <body>
 
     <div class="dropdown dropdown-to-listen" style="padding-top: 50px; padding-bottom: 50px;">
@@ -36,7 +37,92 @@
         <input type="text" id="figure-left" class="form-control" aria-label="Text input with dropdown button" placeholder="css left">
       </div>
     
-      
-    <script src="module2.js"></script>
+  <form id="first-form">
+    <label for="first-form-input">Задание 1</label>
+      <input type="text" name="first-form-input" >
+      <input type="text" name="first-form-input" >
+      <button type="submit" name='submit-btn'>Отправить</button>
+    </form>
+
+    <form id="second-form">
+    <label for="second-form-input">Задание 2</label>
+    <input type="text" name="second-form-input">
+    <button type="submit" name='submit-btn'>Отправить</button>
+  </form>
+
+  <form id="third-form">
+    <label for="third-form-input">Задание 3</label>
+    <input type="text" name="third-form-input">
+    <input type="checkbox" name='third-form-checkbox' value="red">Красный
+    <input type="checkbox" name='third-form-checkbox' value="yellow">Желтый
+    <input type="checkbox" name='third-form-checkbox' value="green">Зеленый
+    <button type="submit" name='submit-btn'>Отправить</button>
+  </form>
+  <p id="third-form-output"></p>
+
+  <form id="fourth-form">
+    <label for="fourth-form-input">Задание 4</label>
+    <input type="text" name="fourth-form-input">
+    <button type="submit" name='submit-btn'>Отправить</button>
+  </form>
+
+  <form id="fifth-form">
+    <label for="fifth-form-input">Задание 5</label>
+      <input type="text" name="firstName" >
+      <input type="text" name="lastName" >
+      <input type="tel" name="phone" maxlength="13">
+      <textarea name="userText" maxlength="100"></textarea>
+      <button type="submit" name='submit-btn'>Отправить</button>
+    </form>
+    <p id="fifth-form-output"></p>
+
+    <form id="sixth-form">
+    <label for="income-expenses">Задание 6</label>
+    <input type="text" name="income-expenses">
+    <input type="radio" id="income" name="radio-button" value="income">
+    <label for="income">Дходы</label>
+    <input type="radio" id="expenses" name="radio-button" value="expenses">
+    <label for="expenses">Расходы</label>
+    <div>
+      <button type="submit" name='submit-btn'>Рассчитать</button>
+    </div>
+    </form>
+    <p id="difference"></p>
+    <div id="graph" class="graph vertical">
+    <div class="item incomeColumn" id="incomeColumn"></div>
+    <div class="item expensesColumn" id="expensesColumn"></div>
+  </div>
+  <form id="seventh-form">
+    <label for="seventh-form-input">Задание 7</label>
+      <input type="email" name="seventh-form-email" >
+      <button type="submit" name='submit-btn'>Отправить</button>
+    </form>
+
+    <button id="modalButton">Добавить пользователя</button>
+    <div id="wrapper"></div>
+    <div id="modal">
+      <label for="eight-form">Введите ваше имя и возраст</label>
+      <form id="eight-form">
+          <input type="text" name="eight-form-input" placeholder="имя">
+          <input type="text" name="eight-form-input" placeholder="возраст">
+          <button type="submit" name='submit-btn' id='submitModal'>Добавить</button>
+          <button type="submit" name='cancel-btn' id='cancelModal'>Отмена</button>
+        </form>
+    </div>
+    <div id="modal-error"></div>
+    <ul id="adults"></ul>
+
+    <form id="ninght-form">
+      <label for="ninght-form-input">Задание 9</label>
+      <input type="radio" id="circle" name="figure-radio-button" value="circle">
+      <label for="circle">Круг</label>
+      <input type="radio" id="square" name="figure-radio-button" value="square">
+      <label for="square">Квадрат</label>
+      <input type="radio" id="rectangle" name="figure-radio-button" value="rectangle">
+      <label for="rectangle" >Прямоугольник</label>
+      </form>
+    
+      <script src="module2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
