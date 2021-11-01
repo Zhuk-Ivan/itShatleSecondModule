@@ -1141,3 +1141,133 @@ let circle = {
 }
 
 circle.calculateCircumference();
+
+
+//Напишите функцию isEmpty(obj), которая возвращает true, если у объекта нет свойств, иначе false. 
+
+let emptyObject = {};
+let nonEmpty = {
+  id: 1,
+  name: 'Ivan'
+}
+
+function isEmpty(obj) {
+    return Object.keys(obj).length > 0 ? false : true;
+}
+
+console.log(isEmpty(emptyObject));
+console.log(isEmpty(nonEmpty));
+
+/**
+ Создать объект selfGeneratedUser с методами: 
+  1) getInfo(), при вызове которого мы через prompt() поочередно получим данные об имени (name), емейле (email) и телефоне (phone) пользователя и запишем их в соответствующие свойства объекта. 
+  2) introduce(), при вызове которого мы поочередно выводим c помощью alert name, email и phone. Если поля нет - не выводим его, переходим к другому полю.
+ */
+
+let selfGeneratedUser = {
+  name: null,
+  email: null,
+  phone: null,
+  getInfo() {
+      this.name = prompt('Введите ваше имя?', '');
+      this.email = prompt('Введите ваш email?', '');
+      this.phone = prompt('Введите ваш телефон?', '');
+  },
+  introduce() {
+    if (this.name) {
+      alert(this.name);
+    }
+    if (this.email) {
+      alert(this.email);
+    }
+    if (this.phone) {
+      alert(this.phone);
+    }
+  }
+}
+
+// selfGeneratedUser.getInfo();
+// selfGeneratedUser.introduce();
+
+
+/**
+ Существует ul список на странице. Получить все текстовые значения элементов списка. Создать из них массив и к каждому элементу массива добавить его порядковый номер. Вывести полученный массив
+ */
+
+  let listOfLiElements = Array.from(document.getElementById('ul-list').getElementsByTagName("li"));
+  let newArrayOfLiElements = listOfLiElements.map(function(element, index) {
+    return element.innerText + (index + 1);
+  });
+  console.log(newArrayOfLiElements)
+
+
+/**
+ Есть объект prices с произвольным количеством свойств, содержащих цены продуктов.
+ Напишите функцию sumPrices(prices), которая возвращает сумму всех цен с помощью метода Object.values
+ */
+
+ let prices = {
+   meat: 15,
+   redPepper: 4,
+   cheese: 6,
+   sausage: 8,
+   tea: 4,
+   coffee: 5
+ }
+
+
+ function sumPrices(obj){
+   return Object.values(obj).reduce(function(sum, current) {
+    return sum + current;
+  }, 0);
+ }
+
+ console.log(sumPrices(prices));
+
+/**
+  Есть массив [ ‘Tony’, ‘Stark’,  1 , 45, 2, 5, 34, 9, 11]
+  Присвоить первое и второе значения массива к соответствующим переменным, а остальные значения сложить 
+ */
+
+
+let destrArr = ['Tony', 'Stark', 1, 45, 2, 5, 34, 9, 11];
+let [firstName, lastName, ...rest] = destrArr;
+const restSum = rest.reduce((a, b) => a + b, 0);
+
+console.log(firstName, lastName, restSum);
+
+//Напишите функцию, которая выводит через 5 секунд на экран сообщение “прошло 5 секунд”
+
+function printFiveSeconds() {
+  setInterval(() => console.log(`Прошло 5 секунд`), 5000);
+}
+
+printFiveSeconds();
+
+//Напишите функцию printNumbers(from, to), которая выводит число каждую секунду, начиная от from и заканчивая to.
+
+function printNumbers(from, to) {
+  let timerId = setInterval(function() {
+    console.log(`number ${from}`);
+    if (from == to) {
+      clearInterval(timerId);
+    }
+    from++;
+  }, 1000);
+}
+
+printNumbers(1, 10);
+
+//По нажатию на кнопку показывать сообщение через 5 секунд, во время этих 5 секунд должно появляться слово “loading”, а после появления сообщения - скрываться
+
+let loadingButton = document.getElementById('message-showing');
+let loadingParagraph = document.getElementById('loading-message');
+
+function sayHi(phrase, who) {
+  loadingParagraph.innerText = phrase + " " + who;
+}
+
+loadingButton.addEventListener('click', function(event){
+  loadingParagraph.innerText = 'Loading';
+  setTimeout(sayHi, 5000, "Привет", "Джон");
+});
