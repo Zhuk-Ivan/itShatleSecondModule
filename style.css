@@ -1,0 +1,59 @@
+#graph.graph{
+  border: 1px dashed #77FF5C;
+  padding: 5px;
+  display: table-cell;
+  vertical-align: bottom;
+}
+#graph .item{
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 3px;  
+}
+
+.expensesColumn {
+  padding: 2px;
+  margin-left: 50px;
+  background-color: red;
+}
+
+.incomeColumn{
+  padding: 2px;
+  background-color: green;
+}
+  
+#graph.horizontal{
+  width: 200px;
+}
+#graph.horizontal .item{
+  height: 20px;
+  text-align: right;
+}
+#graph.vertical{
+  width: 200px; 
+}
+#graph.vertical .item{
+  width: 20px;  
+  display: inline-block;
+}
+
+#wrapper, #modal {
+  display: none;
+}
+
+#wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#modal {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 99;
+  padding: 15px;
+  background-color: white;
+}
