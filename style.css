@@ -1,0 +1,146 @@
+#graph.graph{
+  border: 1px dashed #77FF5C;
+  padding: 5px;
+  display: table-cell;
+  vertical-align: bottom;
+}
+#graph .item{
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 3px;  
+}
+
+.expensesColumn {
+  padding: 2px;
+  margin-left: 50px;
+  background-color: red;
+}
+
+.incomeColumn{
+  padding: 2px;
+  background-color: green;
+}
+  
+#graph.horizontal{
+  width: 200px;
+}
+#graph.horizontal .item{
+  height: 20px;
+  text-align: right;
+}
+#graph.vertical{
+  width: 200px; 
+}
+#graph.vertical .item{
+  width: 20px;  
+  display: inline-block;
+}
+
+#wrapper, #modal {
+  display: none;
+}
+
+.wrapper, .custom-modal {
+  display: none;
+}
+
+#wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#modal {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 99;
+  padding: 15px;
+  background-color: white;
+}
+
+.custom-modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%);
+  z-index: 99;
+  padding: 15px;
+  background-color: white;
+}
+
+.tab {
+  width: 50%;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #eef0f1;
+  border-radius:0 0 20px 20px;
+  }
+  nav .container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+  }
+  nav .container ul li {
+  display: inline-block;
+  border-radius:5px;
+  }
+  nav .container ul li a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  color: black;
+  }
+  nav .container ul li.active {
+  background-color: #3b49df;
+  border-radius:30px;
+  transition: 0.3s;
+  }
+  nav .container ul li.active a {
+  color: #ffffff;
+  }
