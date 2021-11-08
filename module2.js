@@ -1044,230 +1044,529 @@
 
 
 //При скроле, в момент активного 2-го экрана покажите фиксированную кнопку внизу страницы, которая до этого будет являться скрытой.
-let backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', function () {
-  if (window.scrollY - window.screen.height > 0){
-    backToTop.style.display = 'block';
+// let backToTop = document.getElementById('backToTop');
+// window.addEventListener('scroll', function () {
+//   if (window.scrollY - window.screen.height > 0){
+//     backToTop.style.display = 'block';
+//   }
+// });
+
+// backToTop.addEventListener('click', function () {
+//   window.scrollTo(0,0);
+// })
+
+// //Реализовать TABS-блок.
+// //При клике по по вкладке, должен показываться соответствующий текст
+
+// function openTab(event, tabName) {
+//   let tabcontent = document.getElementsByClassName("tabcontent");
+//   for (let i = 0; i < tabcontent.length; i++) {
+//     tabcontent[i].style.display = "none";
+//   }
+
+//   let tablinks = document.getElementsByClassName("tablinks");
+//   for (let i = 0; i < tablinks.length; i++) {
+//     tablinks[i].className = tablinks[i].className.replace(" active", "");
+//   }
+
+//   document.getElementById(tabName).style.display = "block";
+//   event.currentTarget.className += " active";
+// }
+
+// //Реализовать подчёркивание пункта меню, соответствующего текущему экрану.
+// //Например, если мы находимся на разделе “контакты”, вкладка конакты в фиксированном меню должна быть активной и т.д.
+
+// let sections = document.querySelectorAll("section");
+// let navLi = document.querySelectorAll("nav .container ul li");
+// window.onscroll = () => {
+//   let current = "";
+
+//   sections.forEach((section) => {
+//     let sectionTop = section.offsetTop;
+//     if (scrollY >= sectionTop - 60) {
+//       current = section.getAttribute("id"); 
+//     }
+//   });
+
+//   navLi.forEach((li) => {
+//     li.classList.remove("active");
+//     if (li.classList.contains(current)) {
+//       li.classList.add("active");
+//     }
+//   });
+// };
+
+// //Создать объект car с набором свойств по желанию. Вывести в цикле все ключи и значения объекта.
+
+// let car = {
+//   name: 'Porsche',
+//   model: '911',
+//   coachbuilder: 'coupe',
+//   age: 2021,
+//   configuration: '4 × 2'
+// }
+
+// for (const [key, value] of Object.entries(car)) {
+//   console.log(`${key}: ${value}`);
+// }
+// // or
+// for (let key in car) {
+//   console.log(`${key}: ${car[key]}`);
+// }
+
+
+// //Создать объект user с свойствами name, email, phone, id. Скопировать этот объект со всеми свойствами в новую переменную newUser.
+
+// let user = {
+//   id: 1,
+//   name: 'Alex',
+//   emai: 'Alex.novarov@gmail.com',
+//   phone: '+375296449785'
+// }
+
+// let newUser = user;
+
+// console.log(newUser);
+
+// /**Создать объект circle со свойствами: radius, color. 
+// Также создать в объекте метод calculateCircumference(), при вызове которого, в консоль выводится длина окружности (2 * число пи * радиус).
+//  */
+
+// let circle = {
+//   radius: 10,
+//   colr: 'blue',
+//   calculateCircumference(){
+//     console.log(2 * Math.PI * this.radius);
+//   }
+// }
+
+// circle.calculateCircumference();
+
+
+// //Напишите функцию isEmpty(obj), которая возвращает true, если у объекта нет свойств, иначе false. 
+
+// let emptyObject = {};
+// let nonEmpty = {
+//   id: 1,
+//   name: 'Ivan'
+// }
+
+// function isEmpty(obj) {
+//     return Object.keys(obj).length > 0 ? false : true;
+// }
+
+// console.log(isEmpty(emptyObject));
+// console.log(isEmpty(nonEmpty));
+
+// /**
+//  Создать объект selfGeneratedUser с методами: 
+//   1) getInfo(), при вызове которого мы через prompt() поочередно получим данные об имени (name), емейле (email) и телефоне (phone) пользователя и запишем их в соответствующие свойства объекта. 
+//   2) introduce(), при вызове которого мы поочередно выводим c помощью alert name, email и phone. Если поля нет - не выводим его, переходим к другому полю.
+//  */
+
+// let selfGeneratedUser = {
+//   name: null,
+//   email: null,
+//   phone: null,
+//   getInfo() {
+//       this.name = prompt('Введите ваше имя?', '');
+//       this.email = prompt('Введите ваш email?', '');
+//       this.phone = prompt('Введите ваш телефон?', '');
+//   },
+//   introduce() {
+//     if (this.name) {
+//       alert(this.name);
+//     }
+//     if (this.email) {
+//       alert(this.email);
+//     }
+//     if (this.phone) {
+//       alert(this.phone);
+//     }
+//   }
+// }
+
+// // selfGeneratedUser.getInfo();
+// // selfGeneratedUser.introduce();
+
+
+// /**
+//  Существует ul список на странице. Получить все текстовые значения элементов списка. Создать из них массив и к каждому элементу массива добавить его порядковый номер. Вывести полученный массив
+//  */
+
+//   let listOfLiElements = Array.from(document.getElementById('ul-list').getElementsByTagName("li"));
+//   let newArrayOfLiElements = listOfLiElements.map(function(element, index) {
+//     return element.innerText + (index + 1);
+//   });
+//   console.log(newArrayOfLiElements)
+
+
+// /**
+//  Есть объект prices с произвольным количеством свойств, содержащих цены продуктов.
+//  Напишите функцию sumPrices(prices), которая возвращает сумму всех цен с помощью метода Object.values
+//  */
+
+//  let prices = {
+//    meat: 15,
+//    redPepper: 4,
+//    cheese: 6,
+//    sausage: 8,
+//    tea: 4,
+//    coffee: 5
+//  }
+
+
+//  function sumPrices(obj){
+//    return Object.values(obj).reduce(function(sum, current) {
+//     return sum + current;
+//   }, 0);
+//  }
+
+//  console.log(sumPrices(prices));
+
+// /**
+//   Есть массив [ ‘Tony’, ‘Stark’,  1 , 45, 2, 5, 34, 9, 11]
+//   Присвоить первое и второе значения массива к соответствующим переменным, а остальные значения сложить 
+//  */
+
+
+// let destrArr = ['Tony', 'Stark', 1, 45, 2, 5, 34, 9, 11];
+// let [firstName, lastName, ...rest] = destrArr;
+// const restSum = rest.reduce((a, b) => a + b, 0);
+
+// console.log(firstName, lastName, restSum);
+
+// //Напишите функцию, которая выводит через 5 секунд на экран сообщение “прошло 5 секунд”
+
+// function printFiveSeconds() {
+//   setInterval(() => console.log(`Прошло 5 секунд`), 5000);
+// }
+
+// printFiveSeconds();
+
+// //Напишите функцию printNumbers(from, to), которая выводит число каждую секунду, начиная от from и заканчивая to.
+
+// function printNumbers(from, to) {
+//   let timerId = setInterval(function() {
+//     console.log(`number ${from}`);
+//     if (from == to) {
+//       clearInterval(timerId);
+//     }
+//     from++;
+//   }, 1000);
+// }
+
+// printNumbers(1, 10);
+
+// //По нажатию на кнопку показывать сообщение через 5 секунд, во время этих 5 секунд должно появляться слово “loading”, а после появления сообщения - скрываться
+
+// let loadingButton = document.getElementById('message-showing');
+// let loadingParagraph = document.getElementById('loading-message');
+
+// function sayHi(phrase, who) {
+//   loadingParagraph.innerText = phrase + " " + who;
+// }
+
+// loadingButton.addEventListener('click', function(event){
+//   loadingParagraph.innerText = 'Loading';
+//   setTimeout(sayHi, 5000, "Привет", "Джон");
+// });
+
+//Реализовать на основе прототипного наследования создание модальных окон (например, базовая функция модальное окно, с методами показа и скрытия, от которого наследуются функции создания предупреждающего окна, запрещающего окна, окна с успешным выполнением )
+
+let body = document.querySelector("body");
+
+function Modal() {
+  this.create = function () {
+    let modalButton = document.createElement('button');
+    modalButton.className = `modalButton ${this.modalType}`;
+    let wrapper = document.createElement('div');
+    wrapper.className = 'wrapper';
+    let modal = document.createElement('div');
+    let text = document.createElement('h3');
+    text.className = `modal-text ${this.modalType}`
+    modal.className = `custom-modal ${this.modalType}`;
+    body.append(modalButton);
+    body.append(wrapper);
+    body.append(modal);
+    modal.append(text);
+
+    modalButton.onclick = function () {
+      	modal.style.display = 'block';
+        wrapper.style.display = 'block';
+      }
+      document.onkeydown = function(e) {
+        if (e.key == 'Escape') {
+          modal.style.display = 'none';
+          wrapper.style.display = 'none';
+        }
+      };
+      wrapper.onclick = function () {
+      	modal.style.display = 'none';
+        wrapper.style.display = 'none';
+      }
+  };
+  this.setValues = function(modalType, textButton, textModal, backgroundColor){
+    this.modalType = modalType;
+    this.textButton = textButton;
+    this.textModal = textModal;
+    this.backgroundColor = backgroundColor;
+  };
+}
+
+function WarningModal(modalType, textButton, textModal, backgroundColor) {
+  this.setValues(modalType, textButton, textModal, backgroundColor);
+  this.styleModal = function () {
+    let modal = document.querySelector('.custom-modal.warning');
+    modal.style.backgroundColor = this.backgroundColor;
+    let text = document.querySelector('.modal-text.warning');
+    text.innerText = this.textModal;
+    let button = document.querySelector('.modalButton.warning');
+    button.innerText = this.textButton;
   }
-});
-
-backToTop.addEventListener('click', function () {
-  window.scrollTo(0,0);
-})
-
-//Реализовать TABS-блок.
-//При клике по по вкладке, должен показываться соответствующий текст
-
-function openTab(event, tabName) {
-  let tabcontent = document.getElementsByClassName("tabcontent");
-  for (let i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-
-  let tablinks = document.getElementsByClassName("tablinks");
-  for (let i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
-  document.getElementById(tabName).style.display = "block";
-  event.currentTarget.className += " active";
 }
 
-//Реализовать подчёркивание пункта меню, соответствующего текущему экрану.
-//Например, если мы находимся на разделе “контакты”, вкладка конакты в фиксированном меню должна быть активной и т.д.
-
-let sections = document.querySelectorAll("section");
-let navLi = document.querySelectorAll("nav .container ul li");
-window.onscroll = () => {
-  let current = "";
-
-  sections.forEach((section) => {
-    let sectionTop = section.offsetTop;
-    if (scrollY >= sectionTop - 60) {
-      current = section.getAttribute("id"); 
-    }
-  });
-
-  navLi.forEach((li) => {
-    li.classList.remove("active");
-    if (li.classList.contains(current)) {
-      li.classList.add("active");
-    }
-  });
-};
-
-//Создать объект car с набором свойств по желанию. Вывести в цикле все ключи и значения объекта.
-
-let car = {
-  name: 'Porsche',
-  model: '911',
-  coachbuilder: 'coupe',
-  age: 2021,
-  configuration: '4 × 2'
-}
-
-for (const [key, value] of Object.entries(car)) {
-  console.log(`${key}: ${value}`);
-}
-// or
-for (let key in car) {
-  console.log(`${key}: ${car[key]}`);
-}
-
-
-//Создать объект user с свойствами name, email, phone, id. Скопировать этот объект со всеми свойствами в новую переменную newUser.
-
-let user = {
-  id: 1,
-  name: 'Alex',
-  emai: 'Alex.novarov@gmail.com',
-  phone: '+375296449785'
-}
-
-let newUser = user;
-
-console.log(newUser);
-
-/**Создать объект circle со свойствами: radius, color. 
-Также создать в объекте метод calculateCircumference(), при вызове которого, в консоль выводится длина окружности (2 * число пи * радиус).
- */
-
-let circle = {
-  radius: 10,
-  colr: 'blue',
-  calculateCircumference(){
-    console.log(2 * Math.PI * this.radius);
+function ErrorModal(modalType, textButton, textModal, backgroundColor) {
+  this.setValues(modalType, textButton, textModal, backgroundColor);
+  this.styleModal = function () {
+    let modal = document.querySelector('.custom-modal.error');
+    modal.style.backgroundColor = this.backgroundColor;
+    let text = document.querySelector('.modal-text.error');
+    text.innerText = this.textModal;
+    let button = document.querySelector('.modalButton.error');
+    button.innerText = this.textButton;
   }
 }
 
-circle.calculateCircumference();
-
-
-//Напишите функцию isEmpty(obj), которая возвращает true, если у объекта нет свойств, иначе false. 
-
-let emptyObject = {};
-let nonEmpty = {
-  id: 1,
-  name: 'Ivan'
+function SuccessModal(modalType, textButton, textModal, backgroundColor) {
+  this.setValues(modalType, textButton, textModal, backgroundColor);
+  this.styleModal = function () {
+    let modal = document.querySelector('.custom-modal.success');
+    modal.style.backgroundColor = this.backgroundColor;
+    let text = document.querySelector('.modal-text.success');
+    text.innerText = this.textModal;
+    let button = document.querySelector('.modalButton.success');
+    button.innerText = this.textButton;
+  }
 }
 
-function isEmpty(obj) {
-    return Object.keys(obj).length > 0 ? false : true;
+WarningModal.prototype = new Modal();
+ErrorModal.prototype = new Modal();
+SuccessModal.prototype = new Modal();
+
+let warning = new WarningModal('warning','Предупреждающее окно', 'Обратите внимание, это предупреждающее модальное окно', 'yellow');
+let error = new ErrorModal('error','Окно с ошибкой', 'Произошла ошибка', 'red');
+let success = new SuccessModal('success','Окно успешного выполнения', 'Данные успешно отправлены', 'green');
+warning.create();
+error.create();
+success.create();
+
+warning.styleModal();
+error.styleModal();
+success.styleModal();
+
+
+//Ваша задача реализовать класс Person. Вы должны заполнить метод Constructor, чтобы принять имя как строку и возраст как число, реализовать метод getInfo получения информации, который должен вернуть, например, “johns age 34”
+
+class Person{
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+  }
+  getInfo(){
+    console.log(`${this.name}'s age ${this.age}`)
+  }
 }
 
-console.log(isEmpty(emptyObject));
-console.log(isEmpty(nonEmpty));
+let person = new Person("Mikle", 35);
+person.getInfo();
 
-/**
- Создать объект selfGeneratedUser с методами: 
-  1) getInfo(), при вызове которого мы через prompt() поочередно получим данные об имени (name), емейле (email) и телефоне (phone) пользователя и запишем их в соответствующие свойства объекта. 
-  2) introduce(), при вызове которого мы поочередно выводим c помощью alert name, email и phone. Если поля нет - не выводим его, переходим к другому полю.
- */
+//Создать класс Person со стандартными свойствами (имя, возраст) и действиями(идти, разговаривать, есть) человека, от него наследовать классы Ребенок и взрослый со своими особенными и методами свойствами (н-р, у ребенка - плакать или ходить в школу)
 
-let selfGeneratedUser = {
-  name: null,
-  email: null,
-  phone: null,
-  getInfo() {
-      this.name = prompt('Введите ваше имя?', '');
-      this.email = prompt('Введите ваш email?', '');
-      this.phone = prompt('Введите ваш телефон?', '');
-  },
-  introduce() {
-    if (this.name) {
-      alert(this.name);
-    }
-    if (this.email) {
-      alert(this.email);
-    }
-    if (this.phone) {
-      alert(this.phone);
+class Human{
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+  }
+  walk(){
+    console.log('Ep, i`m walkink');
+  }
+  speak(phrase){
+    console.log(`can say whatever i want, something like ${string}`)
+  }
+
+  eat(food){
+    if (food === 'pineapple pizza'){
+      console.log('WTF doode?');
+    }else{
+      console.log('Finally, Some Good F***ing Food!')
     }
   }
 }
 
-// selfGeneratedUser.getInfo();
-// selfGeneratedUser.introduce();
-
-
-/**
- Существует ul список на странице. Получить все текстовые значения элементов списка. Создать из них массив и к каждому элементу массива добавить его порядковый номер. Вывести полученный массив
- */
-
-  let listOfLiElements = Array.from(document.getElementById('ul-list').getElementsByTagName("li"));
-  let newArrayOfLiElements = listOfLiElements.map(function(element, index) {
-    return element.innerText + (index + 1);
-  });
-  console.log(newArrayOfLiElements)
-
-
-/**
- Есть объект prices с произвольным количеством свойств, содержащих цены продуктов.
- Напишите функцию sumPrices(prices), которая возвращает сумму всех цен с помощью метода Object.values
- */
-
- let prices = {
-   meat: 15,
-   redPepper: 4,
-   cheese: 6,
-   sausage: 8,
-   tea: 4,
-   coffee: 5
- }
-
-
- function sumPrices(obj){
-   return Object.values(obj).reduce(function(sum, current) {
-    return sum + current;
-  }, 0);
- }
-
- console.log(sumPrices(prices));
-
-/**
-  Есть массив [ ‘Tony’, ‘Stark’,  1 , 45, 2, 5, 34, 9, 11]
-  Присвоить первое и второе значения массива к соответствующим переменным, а остальные значения сложить 
- */
-
-
-let destrArr = ['Tony', 'Stark', 1, 45, 2, 5, 34, 9, 11];
-let [firstName, lastName, ...rest] = destrArr;
-const restSum = rest.reduce((a, b) => a + b, 0);
-
-console.log(firstName, lastName, restSum);
-
-//Напишите функцию, которая выводит через 5 секунд на экран сообщение “прошло 5 секунд”
-
-function printFiveSeconds() {
-  setInterval(() => console.log(`Прошло 5 секунд`), 5000);
-}
-
-printFiveSeconds();
-
-//Напишите функцию printNumbers(from, to), которая выводит число каждую секунду, начиная от from и заканчивая to.
-
-function printNumbers(from, to) {
-  let timerId = setInterval(function() {
-    console.log(`number ${from}`);
-    if (from == to) {
-      clearInterval(timerId);
+class Child extends Human{
+  constructor(name, age){
+    super(name, age);
+  }
+  walk(){
+    if (this.age < 3){
+      console.log('Right now i can only crawl');
+    }else{
+      super.walk();
     }
-    from++;
-  }, 1000);
+  }
+  speak(){
+    if (this.age < 3){
+      console.log('gugugu');
+    }else{
+      super.speak();
+    }
+  }
+  eat(food){
+    if (food === 'chocolate candies'){
+      console.log('Finally, Some Good Food!');
+    }else{
+      console.log('Eat whatever my mom gives me');
+    }
+  }
+  goToSchool(){
+    if (this.age > 6){
+      console.log('Man, i hate school')
+    }else{
+      console.log('i am too little for school');
+    }
+  }
 }
 
-printNumbers(1, 10);
-
-//По нажатию на кнопку показывать сообщение через 5 секунд, во время этих 5 секунд должно появляться слово “loading”, а после появления сообщения - скрываться
-
-let loadingButton = document.getElementById('message-showing');
-let loadingParagraph = document.getElementById('loading-message');
-
-function sayHi(phrase, who) {
-  loadingParagraph.innerText = phrase + " " + who;
+class Adult extends Human{
+  constructor(name, age){
+    super(name, age);
+  }
+  payDebts(){
+    console.log('kill me plz');
+  }
+  goToWork(){
+      console.log('Man, i hate job');
+  }
+  boozing(){
+    console.log('Do you respect me???')
+  }
 }
 
-loadingButton.addEventListener('click', function(event){
-  loadingParagraph.innerText = 'Loading';
-  setTimeout(sayHi, 5000, "Привет", "Джон");
-});
+let child = new Child('Peter', 7);
+child.walk();
+child.eat("Spagetti");
+child.goToSchool();
+let adult = new Adult('Mike', 43);
+adult.goToWork();
+adult.eat('pineapple pizza');
+adult.boozing();
+
+//Реализовать с помощью классов функциональность из задачи 3  темы “прототипы” :
+//Реализовать на основе прототипного наследования создание модальных окон (например, базовая функция модальное окно, с методами показа и скрытия, от которого наследуются функции создания предупреждающего окна, запрещающего окна, окна с успешным выполнением )
+
+class ModalClass{
+  constructor(modalType, textButton, textModal, backgroundColor){
+    this.modalType = modalType;
+    this.textButton = textButton;
+    this.textModal = textModal;
+    this.backgroundColor = backgroundColor;
+  }
+  create() {
+    let modalButton = document.createElement('button');
+    modalButton.className = `modalButton ${this.modalType}`;
+    let wrapper = document.createElement('div');
+    wrapper.className = 'wrapper';
+    let modal = document.createElement('div');
+    let text = document.createElement('h3');
+    text.className = `modal-text ${this.modalType}`
+    modal.className = `custom-modal ${this.modalType}`;
+    body.append(modalButton);
+    body.append(wrapper);
+    body.append(modal);
+    modal.append(text);
+
+    modalButton.onclick = function () {
+      	modal.style.display = 'block';
+        wrapper.style.display = 'block';
+      }
+      document.onkeydown = function(e) {
+        if (e.key == 'Escape') {
+          modal.style.display = 'none';
+          wrapper.style.display = 'none';
+        }
+      };
+      wrapper.onclick = function () {
+      	modal.style.display = 'none';
+        wrapper.style.display = 'none';
+      }
+  }
+}
+
+class WarningModalClass extends ModalClass{
+  constructor(modalType, textButton, textModal, backgroundColor){
+    super(modalType, textButton, textModal, backgroundColor)
+  }
+  styleModal() {
+    let modal = document.querySelector('.custom-modal.warning-class');
+    modal.style.backgroundColor = this.backgroundColor;
+    let text = document.querySelector('.modal-text.warning-class');
+    text.innerText = this.textModal;
+    let button = document.querySelector('.modalButton.warning-class');
+    button.innerText = this.textButton;
+  }
+}
+
+class ErrorModalClass extends ModalClass{
+  constructor(modalType, textButton, textModal, backgroundColor){
+    super(modalType, textButton, textModal, backgroundColor)
+  }
+  styleModal() {
+    let modal = document.querySelector('.custom-modal.error-class');
+    modal.style.backgroundColor = this.backgroundColor;
+    let text = document.querySelector('.modal-text.error-class');
+    text.innerText = this.textModal;
+    let button = document.querySelector('.modalButton.error-class');
+    button.innerText = this.textButton;
+  }
+}
+
+class SuccessModalClass extends ModalClass{
+  constructor(modalType, textButton, textModal, backgroundColor){
+    super(modalType, textButton, textModal, backgroundColor)
+  }
+  styleModal() {
+    let modal = document.querySelector('.custom-modal.success-class');
+    modal.style.backgroundColor = this.backgroundColor;
+    let text = document.querySelector('.modal-text.success-class');
+    text.innerText = this.textModal;
+    let button = document.querySelector('.modalButton.success-class');
+    button.innerText = this.textButton;
+  }
+}
+
+let warningModal2 = new WarningModalClass('warning-class', 'Предупреждающее окно (наследование)', 'Обратите внимание, это предупреждающее модальное окно создано с помощью классов и наследования', 'yellow')
+let errorModal2 = new ErrorModalClass('error-class', 'Окно ошибки (наследование)', 'Ошибка вызвана не наследованием(все так и задумано!)', 'red')
+let successModal2 = new SuccessModalClass('success-class', 'Окно успешного выполнения (наследование)', 'Данные успешно отображены с помощью классов и наследования', 'green')
+
+warningModal2.create();
+errorModal2.create();
+successModal2.create();
+
+warningModal2.styleModal();
+errorModal2.styleModal();
+successModal2.styleModal();
+
+//Создать класс Ball, тип которого regular, если аргумент не передан, super, если передан  аргумент “superBall”
+
+class Ball{
+  constructor(ballType){
+    this.ballType = typeof ballType === 'undefined' ? 'regular' : 'superBall';
+  }
+}
+
+let ball1 = new Ball();
+let ball2 = new Ball("superBall");
+
+console.log(ball1.ballType)    
+console.log(ball2.ballType)    
